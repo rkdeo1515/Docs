@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1. 아치리눅스 Bluetooth 설치 (Bluez)
+title: 1. 아치리눅스 블루투스 마우스 사용하기  (Bluez)
 description: 2017-11-24-archlinux-bluetooth.md
 author: EGOTIRP
 category: ARCH LINUX

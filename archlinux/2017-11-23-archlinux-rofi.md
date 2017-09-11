@@ -7,50 +7,63 @@ category: ARCH LINUX
 ---
 ![archlinux-logo](https://rkdeo1515.github.io/assets/2017-10-04-1-install-arch-cli/archlinux-logo.png)
 
-# 아치리눅스 i3 설치
+# 아치리눅스 rofi 설치
 
-## 1. Xorg 설치하기
-```
-sudo pacman -S xorg-server xorg-xinit
-```
-```
-cp /etc/X11/xinit/xinitrc .xinitrc
-```
-
-## i3-gaps 설치
+## rofi 설치
 
 ```
-git clone https://aur.archlinux.org/i3-gaps-git.git
+sudo pacman -S rofi
 ```
+## rofi 설정
+
+설정 샘플 파일 생성 및 편집
 ```
-cd i3-gaps-git
-makepkg -si
-sudo pacman -U i3-gaps
+rofi -dump-xresources > ~/.config/rofi/config
 ```
 
 ```
-git clone https://aur.archlinux.org/i3blocks-git.git
-```
-```
-cd i3blocks-gaps-git
-makepkg -si
-sudo pacman -U i3block-gaps
+! "Window width" Set from: Default
+rofi.width:                          950
+! "Number of lines" Set from: Default
+rofi.lines:                          8
+! "Number of columns" Set from: Default
+rofi.columns:                        1
+! "Font to use" Set from: Default
+rofi.font:                           NotoMono 11
+! "Border width" Set from: Default
+rofi.bw:                             3
+! "Location on screen" Set from: Default
+rofi.location:                       0
+! "Padding" Set from: Default
+rofi.padding:                        15
+! "Whether to load and show icons" Set from: Default
+rofi.show-icons:                     true
+! "Margin between rows *DEPRECATED*" Set from: Default
+rofi.line-margin:                    1
+! "Padding within rows *DEPRECATED*" Set from: Default
+rofi.line-padding:                   10
+! "Separator style (none, dash, solid) *DEPRECATED*" Set from: Default
+rofi.separator-style:                solid
+! "Hide scroll-bar *DEPRECATED*" Set from: Default
+rofi.hide-scrollbar:                 true
+! "Fullscreen" Set from: Default
+rofi.fullscreen:                     false
+! "Click outside the window to exit" Set from: Default
+rofi.click-to-exit:                  true
+! bg    fg    bg-alt    hl-bg    hl-fg
+rofi.color-normal: #282828, #ebdbb2, #282828, #665c54, #fbf1c7
+rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828
+rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+! bg    border    separator
+rofi.color-window: #282828, #a89984, #a89984
 ```
 
-## 터미널
+## dmenu와 교체 하기
+i3 설정파일 편집
 ```
-sudo pacman -S termite
+nano .config/i3/config
 ```
-## 배경 화면 설정하기
-`feh` 다운로드
 ```
-sudo pacman -S feh
-```
-배경 화면 설정
-```
-feh --bg-scale /path/to/image.file
-```
-자동 실행 스크립트
-```
-~/.fehbg &
+# bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show drun
 ```
