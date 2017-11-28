@@ -1,9 +1,7 @@
-i3 background config
+# ==============================
+# settings for i3-gaps - https://github.com/Airblader/i3
+# ==============================
 
-i3 gaps config
-
-```
-# i3-gaps from https://github.com/Airblader/i3
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 3
 
@@ -19,7 +17,7 @@ gaps outer 5
 # Smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
@@ -28,7 +26,6 @@ set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
-
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
@@ -60,4 +57,13 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-```
+
+# ==============================
+# AutoStart Script
+# ==============================
+
+# feh - script for set wallpaper
+exec --no-startup-id ~/.fehbg &
+
+# ibus - input method framework for hangul
+exec --no-startup-id ibus-daemon -drx

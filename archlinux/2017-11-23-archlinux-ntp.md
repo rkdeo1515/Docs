@@ -12,7 +12,7 @@ category: ARCH LINUX
 ## 1. timesyncd 설정 편집
 NTP 서버 리스트 주석 해제
 ```
-sudo nano /etc/systemd/timesyncd.conl
+sudo nano /etc/systemd/timesyncd.conf
 ```
 
 ## 2. NTP 기능 켜기

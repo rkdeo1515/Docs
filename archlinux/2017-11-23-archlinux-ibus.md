@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1. 아치리눅스 ibus 설치 (한글 사용하기)
+title: 1. 아치리눅스 커스텀 셋업
 author: EGOTIRP
 category: ARCH LINUX
 ---
@@ -22,7 +22,7 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ```
-아래의 내용을 `.xinitrc`에 추가
+아래의 내용을 `.xinitrc`등의 자동시작 스크립트 추가
 ```
 ibus-daemon -drx
 ```
