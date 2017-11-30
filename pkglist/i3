@@ -1,0 +1,6 @@
+i3-gaps-git
+i3blocks-gaps-git
+lightdm
+lightdm-gtk-greeter
+xorg-server
+xorg-xinit

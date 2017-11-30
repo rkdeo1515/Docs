@@ -1,0 +1,41 @@
+# YOCTO helloworld 예제
+
+
+## 1.  yocto-layer로 recipe 생성.
+
+meta-custom 생성
+```
+$ cd ~/yocto/poky
+$ source oe-init-build-env qemux86
+$ cd ..
+$ yocto-layer create custom
+```
+이후, example 생성하겠냐는 물음에 y로 대답 진행하면 기본예제로 helloworld.c 및 기본 자동 생성.  
+
+## 2. 레이어 추가하기
+build/conf/bblayer.conf 수정.
+
+새로운 layer추가.
+
+```
+BBLAYERS ?= " \
+  /home/keunho/yocto/poky/meta-custom \
+"
+```
+
+build/conf/local.conf의 제일 마지막에 아래 라인 추가.
+
+```
+IMAGE_INSTALL_append = " example"
+```
+
+example이 실행되면서 실제 실행파일인 helloworld가 /usr/sbin에 설치.
+
+
+## 3. 빌드
+```
+$ bitbake core-image-minimal
+```
+## 7. 실행
+
+QEMU에서 helloworld 입력하면 Hello World! 출력.

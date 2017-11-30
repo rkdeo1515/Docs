@@ -10,11 +10,15 @@ category: ARCH LINUX
 ---
 
 ## 1. timesyncd 설정 편집
-NTP 서버 리스트 주석 해제
+설정 편집
 ```
 sudo nano /etc/systemd/timesyncd.conf
 ```
-
+```
+[Time]
+NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
+```
 ## 2. NTP 기능 켜기
  ```
  sudo timedatectl set-ntp true
